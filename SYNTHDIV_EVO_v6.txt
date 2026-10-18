@@ -1,0 +1,398 @@
+
+ClrHome
+Disp "Synthetic Division"
+Disp "(Using INTEGER Coefficients.)"
+Disp "Highest Polynomial Degree"
+Input "(1-10)?",N
+If N<1 or N>10 or N≠int(N)
+Then
+ClrHome
+Disp "Invalid degree: "+toString(N)
+Disp "Enter To Continue"
+Pause ""
+Stop
+End
+N+1→dim(L1)
+For(I,1,N+1)
+ClrHome
+Disp "Power of X^"+toString(N+1-I)
+Input "Coefficient?",A
+If A≠int(A) or abs(A)>1000000
+Then
+ClrHome
+Disp "Integer coefficients only"
+Disp "Maximum absolute: 1000000"
+Disp "Enter To Continue..."
+Pause ""
+Stop
+End
+A→L1(I)
+End
+If L1(1)=0
+Then
+ClrHome
+Disp "Leading coefficient = 0"
+Disp "Enter To Continue..."
+Pause ""
+Stop
+End
+N→dim(L2)
+0→dim(L6)
+0→F
+0→G
+0→W
+N→T
+While T>0 and L1(T+1)=0
+T-1→T
+End
+If T<N
+Then
+1→F
+0→L2(1)
+End
+If T=0
+Then
+1→dim(L3)
+0→L3(1)
+1→dim(L4)
+0→V
+abs(L1(1))→Q
+For(I,1,int(√(Q)))
+If Q/I=int(Q/I)
+Then
+V+1→V
+I→L4(V)
+If I≠Q/I
+Then
+V+1→V
+Q/I→L4(V)
+End
+End
+End
+V→dim(L4)
+SortA(L4)
+1→dim(L5)
+0→L5(1)
+1→W
+Else
+abs(L1(T+1))→P
+abs(L1(1))→Q
+1→dim(L3)
+1→dim(L4)
+1→dim(L5)
+0→U
+0→V
+For(I,1,int(√(P)))
+If P/I=int(P/I)
+Then
+U+1→U
+I→L3(U)
+If I≠P/I
+Then
+U+1→U
+P/I→L3(U)
+End
+End
+End
+For(I,1,int(√(Q)))
+If Q/I=int(Q/I)
+Then
+V+1→V
+I→L4(V)
+If I≠Q/I
+Then
+V+1→V
+Q/I→L4(V)
+End
+End
+End
+U→dim(L3)
+V→dim(L4)
+SortA(L3)
+SortA(L4)
+For(I,1,U)
+For(J,1,V)
+For(S,0,1)
+(2*S-1)*L3(I)/L4(J)→R
+0→H
+For(K,1,W)
+If R=L5(K)
+1→H
+End
+If H=0
+Then
+If W<999
+Then
+W+1→W
+R→L5(W)
+Else
+1→G
+End
+L1(1)→B
+For(K,2,N+1)
+R*B+L1(K)→B
+End
+If abs(B)<.00000001
+Then
+0→H
+For(K,1,F)
+If R=L2(K)
+1→H
+End
+If H=0 and F<N
+Then
+F+1→F
+R→L2(F)
+End
+End
+End
+End
+End
+End
+W→dim(L5)
+End
+F→dim(L2)
+Lbl M
+ClrHome
+Disp "Number of Rational Roots="+toString(F)
+If F=0
+Then
+Disp "No rational roots found"
+Disp "Enter To Continue..."
+Pause ""
+Else
+Disp "Confirmed roots are in L2."
+Disp "Enter To Continue..."
+Pause L2
+End
+Lbl V
+Menu("Show Results:"+toString(L1),"Show Roots",M,"Show p Factors",P,"Show q Factors",Q,"+/- p/q",C,"Show Factored Eq",F,"Save Divisor",S,"EXIT",Z)
+Lbl P
+ClrHome
+Disp "p factors are in L3."
+If T<N and T>0
+Disp "Reduced constant term."
+If T=0
+Disp "Zero-only polynomial."
+Disp "Enter To Continue..."
+Pause L3
+Goto V
+Lbl Q
+ClrHome
+Disp "q factors are in L4."
+Disp "Leading coefficient(s):"
+Disp "Enter To Continue..."
+Pause L4
+Goto V
+Lbl C
+ClrHome
+Disp "+/- p/q candidates are in L5"
+If T<N
+Disp "Also test x=0"
+If G=1
+Disp "First 999 candidates saved."
+Disp "Enter To Continue..."
+Pause L5
+Goto V
+Lbl S
+If F=0
+Goto O
+Menu("Save a Root","First Root",A,"Choose N'th Root",B,"BACK",V)
+Lbl A
+1→D
+Goto D
+Lbl B
+ClrHome
+Disp "Root saved in L2."
+Disp "Choose root 1 thru "+toString(F)+"."
+Input "Which Root to save?",D
+If D<1 or D>F or D≠int(D)
+Then
+ClrHome
+Disp "Invalid root number."
+Disp "Enter To Continue..."
+Pause ""
+Goto S
+End
+Lbl D
+L2(D)→R
+N+1→dim(L6)
+L1(1)→L6(1)
+For(I,2,N+1)
+L1(I)+R*L6(I-1)→L6(I)
+End
+If abs(L6(N+1))<.00000001
+0→L6(N+1)
+ClrHome
+Disp "Root "+toString(D)+"= "+toString(R)
+Disp "Quotient + remainder are in L6."
+Disp "Enter To Continue..."
+Pause L6
+Lbl H
+Menu("Synthetic Division Results","Show Solve Steps",E,"Show Roots",M,"Show Results",V,"EXIT",Z)
+Lbl F
+R→Z
+L1→ʟEXPR
+N→E
+""→Str1
+For(J,1,F)
+L2(J)→R
+0→S
+1→Y
+While E>0 and Y
+ʟEXPR(1)→B
+For(K,2,E+1)
+R*B+ʟEXPR(K)→B
+End
+If abs(B)<.00000001
+Then
+ʟEXPR(1)→A
+For(K,2,E+1)
+ʟEXPR(K)+R*A→B
+A→ʟEXPR(K-1)
+B→A
+End
+E-1→E
+S+1→S
+Else
+0→Y
+End
+End
+If S>0
+Then
+If R>0
+Then
+"(x-"+toString(R,0)+")"→Str4
+Else
+If R<0
+Then
+"(x+"+toString(-R,0)+")"→Str4
+Else
+"(x)"→Str4
+End
+End
+If S>1
+Str4+"^"+toString(S)→Str4
+If length(Str1)=0
+Then
+Str4→Str1
+Else
+Str1+Str4→Str1
+End
+End
+End
+If E=0
+Then
+If abs(ʟEXPR(1)-1)<.00000001
+Then
+Str1→Str3
+Else
+If abs(ʟEXPR(1)+1)<.00000001
+Then
+"-"+Str1→Str3
+Else
+toString(ʟEXPR(1),0)+Str1→Str3
+End
+End
+Else
+""→Str2
+For(I,1,E+1)
+ʟEXPR(I)→A
+If abs(A)>.00000001
+Then
+If A<0
+Then
+If length(Str2)=0
+Then
+"-"→Str2
+Else
+Str2+"-"→Str2
+End
+Else
+If length(Str2)>0
+Str2+"+"→Str2
+End
+E+1-I→X
+If X=0 or abs(abs(A)-1)>.00000001
+Then
+If length(Str2)=0
+Then
+toString(abs(A),0)→Str2
+Else
+Str2+toString(abs(A),0)→Str2
+End
+End
+If X>0
+Then
+If length(Str2)=0
+Then
+"x"→Str2
+Else
+Str2+"x"→Str2
+End
+If X>1
+Str2+"^"+toString(X)→Str2
+End
+End
+End
+If length(Str1)=0
+Then
+Str2→Str3
+Else
+Str1+"("+Str2+")"→Str3
+End
+End
+Str3+"=0"→Str3
+1→I
+While I≤length(Str3)
+ClrHome
+Disp "FACTORED EQUATION:"
+Disp "f(x)="
+For(K,1,5)
+If I≤length(Str3)
+Then
+Disp sub(Str3,I,min(22,length(Str3)-I+1))
+I+22→I
+End
+End
+Disp "Enter To Continue..."
+Pause ""
+End
+Z→R
+Goto V
+Lbl E
+For(I,2,N+1)
+ClrHome
+Disp "Step "+toString(I-1)+" of "+toString(N)
+Disp "Carry="+toString(L6(I-1))
+Disp "Root="+toString(R)
+Disp "Product="+toString(R*L6(I-1))
+Disp "Add coeff="+toString(L1(I))
+Disp "Result="+toString(L6(I))
+Disp "Enter To Continue..."
+Pause ""
+End
+Goto H
+Lbl O
+ClrHome
+Disp "No root available to save"
+Disp "Enter To Continue..."
+Pause ""
+Goto V
+Lbl Z
+ClrHome
+Disp "LIST LEGEND"
+Disp "L1: Input coefficients"
+Disp "L2: Rational roots"
+Disp "L3: p factors"
+Disp "L4: q factors"
+Disp "L5: +/- p/q candidates"
+If dim(L6)=0
+Then
+Disp "No division saved in L6."
+Else
+Disp "Quotient + remainder are in L6."
+End
+Disp "Enter To Continue..."
+Pause ""
+Stop
