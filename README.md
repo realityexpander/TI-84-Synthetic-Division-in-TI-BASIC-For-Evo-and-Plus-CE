@@ -8,6 +8,13 @@ Enter a polynomial's integer coefficients, inspect its possible rational roots, 
 
 ## Features
 
+<img width="324" height="244" alt="ticevo_screenshot_20261017_220918-screen1" src="https://github.com/user-attachments/assets/754cf740-2ce9-4ca8-b677-682515b08a19" />
+<img width="324" height="244" alt="ticevo_screenshot_20261017_220813-screen2" src="https://github.com/user-attachments/assets/b4811ebe-a3ff-4d67-bf9c-59cf5568ee38" />
+<img width="324" height="244" alt="ticevo_screenshot_20261017_220824-screen3" src="https://github.com/user-attachments/assets/0f2ab18f-f215-460f-aa21-df3f9aef0d3f" />
+<img width="324" height="244" alt="ticevo_screenshot_20261017_220904-screen4" src="https://github.com/user-attachments/assets/2d9c0529-cedb-4415-92c3-0aa0c2e48d1e" />
+<img width="324" height="244" alt="ticevo_screenshot_20261017_221042-screen5" src="https://github.com/user-attachments/assets/3a2f7a57-d21b-40ee-8b48-04ab7db9e70c" />
+<img width="324" height="244" alt="ticevo_screenshot_20261017_221102-screen6" src="https://github.com/user-attachments/assets/c894ccd1-98e4-42c3-99f6-aed67645a653" />
+
 - Supports polynomial degrees **1 through 10**.
 - Accepts **integer coefficients**, including zero coefficients for missing powers, with absolute values up to **1,000,000**.
 - Generates factors of **p** (the relevant nonzero constant term) and **q** (the leading coefficient), and candidate roots **±p/q** using the Rational Root Theorem.
