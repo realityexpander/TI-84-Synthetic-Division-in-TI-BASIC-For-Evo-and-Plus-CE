@@ -25,6 +25,7 @@ Enter a polynomial's integer coefficients, inspect its possible rational roots, 
 - Shows the **carry, product, added coefficient, and result** for each synthetic-division step.
 - Displays a **factored equation**, retaining an unfactored polynomial factor if no further rational roots are found.
 - Includes a list legend when exiting.
+- Conversation with AI that generated the program: https://chatgpt.com/share/6ad42f54-bb10-83e9-8cd6-459ba50a5004
 
 ## Example
 
