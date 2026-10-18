@@ -58,9 +58,9 @@ The program identifies the distinct rational roots:
 Choose root `1`. Synthetic division produces:
 
 ```text
-Original coefficients:   1  -6  11  -6
-Products:                   1  -5   6
-Bottom row:              1  -5   6   0
+Original coefficients:    1|  -6  11  -6
+Products:                 ⬇   1  -5   6
+Bottom row:               1   -5   6   0 | r=0
 ```
 
 The saved quotient is:
