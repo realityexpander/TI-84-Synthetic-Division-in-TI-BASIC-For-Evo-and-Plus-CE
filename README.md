@@ -174,4 +174,6 @@ If the polynomial has a factor of $x$, the program includes zero among its roots
 
 ## License
 
-No license has been specified yet. Add a `LICENSE` file if you want to grant others permission to use, modify, or redistribute the program.
+This project is licensed under the **MIT License**. You may use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided that the original copyright and permission notice are included in copies or substantial portions of the software.
+
+Copyright © 2026 Chris Athanas. See the [LICENSE](LICENSE) file for the complete license terms, including the warranty disclaimer.
