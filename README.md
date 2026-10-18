@@ -1,6 +1,6 @@
-# Synthetic Division — TI-84 EVO
+# Synthetic Division — TI-84 EVO & Plus CE
 
-A TI-BASIC program for the **TI-84 EVO** that finds rational-root candidates, tests them using synthetic division, and helps reduce a polynomial to lower-degree factors.
+A TI-BASIC program for the **TI-84 EVO and Plus CE** that finds rational-root candidates, tests them using synthetic division, and helps reduce a polynomial to lower-degree factors.
 
 Enter a polynomial's integer coefficients, inspect its possible rational roots, see the confirmed roots, and choose one to perform synthetic division. The program can also assemble a factored equation from the rational roots it finds.
 
