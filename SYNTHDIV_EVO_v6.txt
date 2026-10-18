@@ -1,4 +1,3 @@
-
 ClrHome
 Disp "Synthetic Division"
 Disp "(Using INTEGER Coefficients.)"
@@ -166,7 +165,7 @@ Disp "Enter To Continue..."
 Pause L2
 End
 Lbl V
-Menu("Show Results:"+toString(L1),"Show Roots",M,"Show p Factors",P,"Show q Factors",Q,"+/- p/q",C,"Show Factored Eq",F,"Save Divisor",S,"EXIT",Z)
+Menu("Show Results:"+toString(L1),"Show Roots",M,"Show p Factors",P,"Show q Factors",Q,"+/- p/q",C,"Show Factored Eq",F,"Save Divisor/Show Steps",S,"EXIT",Z)
 Lbl P
 ClrHome
 Disp "p factors are in L3."
